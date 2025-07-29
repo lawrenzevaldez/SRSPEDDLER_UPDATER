@@ -1,19 +1,19 @@
-'use strict'
+"use strict";
 
-const WooCommerceApiController = require("../Controllers/Http/WooCommerceApiController")
+const WooCommerceApiController = require("../Controllers/Http/WooCommerceApiController");
 
-const Task = use('Task')
+const Task = use("Task");
 
 class PriceStockUpdate extends Task {
-  static get schedule () {
-    return '0 0 */2 * * *'
+  static get schedule() {
+    return "*/10 * * * *";
   }
 
-  async handle () {
+  async handle() {
     // try {
     //   console.log("START UPDATING")
     //   let Controller = new WooCommerceApiController
-    //   await Controller.updatePrice()
+    //   await Controller.saveJsonData()
     //   console.log("---END---")
     // } catch(e) {
     //   console.log(e)
@@ -21,4 +21,4 @@ class PriceStockUpdate extends Task {
   }
 }
 
-module.exports = PriceStockUpdate
+module.exports = PriceStockUpdate;
