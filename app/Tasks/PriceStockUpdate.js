@@ -10,14 +10,14 @@ class PriceStockUpdate extends Task {
   }
 
   async handle() {
-    // try {
-    //   console.log("START UPDATING")
-    //   let Controller = new WooCommerceApiController
-    //   await Controller.saveJsonData()
-    //   console.log("---END---")
-    // } catch(e) {
-    //   console.log(e)
-    // }
+    try {
+      console.log("START UPDATING");
+      let Controller = new WooCommerceApiController();
+      await Controller.saveJsonData();
+      console.log("---END---");
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
 

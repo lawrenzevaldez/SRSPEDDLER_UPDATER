@@ -60,7 +60,7 @@ class WooCommerceApiController {
         console.log(BATCH_SIZE);
       }
 
-      // await this.updateStockPrice();
+      await this.updateStockPrice();
     } catch (error) {
       console.log(error);
     }
