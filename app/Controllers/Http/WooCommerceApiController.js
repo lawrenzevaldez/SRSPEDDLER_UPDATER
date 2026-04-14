@@ -12,8 +12,8 @@ class WooCommerceApiController {
   constructor() {
     this.WooCommerce = new WooCommerceRestApi({
       url: "https://srspeddler.com/bagumbong/",
-      consumerKey: "ck_896883aea737a4a41cc7cfe6e4eeecf54d5eb56b",
-      consumerSecret: "cs_9764173f33f10a90aace5c5eda4b0882c61f98b5",
+      consumerKey: "ck_985079854a3eb52c5d18a278c8ce6a9615c4c987",
+      consumerSecret: "cs_3a4bd1faf5a2da5ff0f2a951932b922820a4b59f",
       version: "wc/v3",
     });
   }
@@ -28,7 +28,7 @@ class WooCommerceApiController {
       for (const chunk of chunks) {
         const mapped = chunk.map(async (p) => {
           const byBarcode = ["y", "yes"].includes(
-            String(p.by_barcode).toLowerCase()
+            String(p.by_barcode).toLowerCase(),
           );
 
           const prodDetails = byBarcode
@@ -97,7 +97,7 @@ class WooCommerceApiController {
               try {
                 const result = await this.WooCommerce.post(
                   "products/batch",
-                  payload
+                  payload,
                 );
 
                 if (result.status === 200) {
@@ -116,7 +116,7 @@ class WooCommerceApiController {
 
                   const waitMs = 1000 * retries; // backoff
                   console.log(
-                    `⚠️ 503 Service Unavailable. Retrying in ${waitMs}ms...`
+                    `⚠️ 503 Service Unavailable. Retrying in ${waitMs}ms...`,
                   );
                   await this.sleep(waitMs);
                   continue;
@@ -126,7 +126,7 @@ class WooCommerceApiController {
                 break;
               }
             }
-          })
+          }),
         );
       }
     } catch (e) {
@@ -142,7 +142,7 @@ class WooCommerceApiController {
   }
   async chunkArray(arr, size) {
     return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
-      arr.slice(i * size, i * size + size)
+      arr.slice(i * size, i * size + size),
     );
   }
 
