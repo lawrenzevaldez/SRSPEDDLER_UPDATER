@@ -110,7 +110,7 @@ class Product extends Model {
     }
   }
 
-  async deleteOldProcessed() {
+  async deleteOldRecords() {
     try {
       return await Db("peddler_updater")
         .andWhere("updated_at", "<", moment().subtract(1, "hour").toDate())
