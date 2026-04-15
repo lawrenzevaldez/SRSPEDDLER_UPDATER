@@ -12,7 +12,11 @@ class PriceStockUpdate extends Task {
   async handle() {
     try {
       console.log("START UPDATING");
+
       let Controller = new WooCommerceApiController();
+      const ProductMod = use("App/Models/Product");
+
+      await ProductMod.deleteOldRecords();
       await Controller.saveJsonData();
       console.log("---END---");
     } catch (e) {

@@ -48,6 +48,7 @@ class WooCommerceApiController {
             regular_price: itemPrice,
             stock_quantity: stocks,
             stock_status: stocks <= 0 ? "outofstock" : "instock",
+            updated_at: moment().format("YYYY-MM-DD HH:mm:ss"),
           };
         });
 
