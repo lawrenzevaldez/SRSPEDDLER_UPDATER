@@ -112,8 +112,8 @@ class Product extends Model {
 
   async deleteOldRecords() {
     try {
-      return await Db("peddler_updater")
-        .andWhere("updated_at", "<", moment().subtract(1, "hour").toDate())
+      return await Db.table("peddler_updater")
+        .where("updated_at", "<", moment().subtract(1, "hour").toDate())
         .delete();
     } catch (error) {
       console.log(error);

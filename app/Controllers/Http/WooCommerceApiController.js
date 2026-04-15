@@ -8,6 +8,8 @@ const WC_CONCURRENCY = 2; // Number of WC parallel batches
 const WC_BATCH_SIZE = 100; // WooCommerce max recommended is 100 items per batch
 const MAX_RETRY = 5;
 
+const moment = require("moment");
+
 class WooCommerceApiController {
   constructor() {
     this.WooCommerce = new WooCommerceRestApi({
